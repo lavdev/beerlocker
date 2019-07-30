@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
     <title>Beer Locker</title>
-  </head>
-  <body>
-    <p>Hi <%= user.username %>!</p>
-    <p><b><%= client.name %></b> is requesting <b>full access</b> to your account.</p>
-    <p>Do you approve?</p>
+</head>
 
-    <form action="/api/oauth2/authorize" method="post">
-      <input name="transaction_id" type="hidden" value="<%= transactionID %>">
-      <div>
-      <input type="submit" value="Allow" id="allow">
-      <input type="submit" value="Deny" name="cancel" id="deny">
-      </div>
-    </form>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Omie's Client Authorization</h3>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="/images/logo.png" alt="Logo">
+                        <p>Hi <%= user.username %>!</p>
+                        <p><b><%= client.name %></b> is requesting <b>full access</b> to your account.</p>
+                        <p>Do you approve?</p>
+                        <form action="/api/oauth2/authorize" method="post">
+                            <input name="transaction_id" type="hidden" value="<%= transactionID %>">
+                            <div>
+                                <input type="submit" class="btn btn btn-success" value="Allow" id="allow">
+                                <input type="submit" class="btn btn btn-danger" value="Deny" name="cancel"
+                                    id="deny">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
-  </body>
 </html>
